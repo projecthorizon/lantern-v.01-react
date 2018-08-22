@@ -10,11 +10,11 @@ const StyledButton = styled.div`
   padding: 0.5%;
   width: 15%;
   height: 2em;
-  border: 1px solid red;
+  border: 1px solid green;
   font-size: 1.5em;
 `;
 
-export default class NavButton extends PureComponent {
+export default class SubNavButton extends PureComponent {
   render() {
     const { link, children } = this.props;
     return (
