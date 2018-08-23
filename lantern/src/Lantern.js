@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Nav, SubNav, Card } from './components/molecules';
-import { Home } from './components/pages';
+import { Nav } from './components/molecules';
+import { Home, WhyWeExist, WhatWeDo } from './components/pages';
 
 export default class Lantern extends Component {
   state = {
     nav: {
       logoName: 'Lantern',
       routes: [
-        { path: '#', component: null, text: 'Why We Exist' },
-        { path: '#', component: null, text: 'What We Do' },
+        { path: '/why_we_exist', component: WhyWeExist, text: 'Why We Exist' },
+        { path: '/what_we_do', component: WhatWeDo, text: 'What We Do' },
         { path: '#', component: null, text: 'Candidate Development' },
         { path: '#', component: null, text: 'Consultative Recruiting' }
       ]

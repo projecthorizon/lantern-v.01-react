@@ -10,9 +10,16 @@ const StyledCard = styled.div`
 `;
 
 export default class Card extends PureComponent {
+  createUl(arr) {
+    const lis = arr.map((li, i) => <li key={i}>{li}</li>);
+    return <ul>{lis}</ul>;
+  }
+
   render() {
     const { title, body, price, footer } = this.props;
-    const paragraphs = body.map((p, i) => <TextBody key={i} text={p} />);
+    const paragraphs = body.map((p, i) => {
+      return !Array.isArray(p) ? <TextBody key={i} text={p} /> : this.createUl(p);
+    });
     return price ? (
       <StyledCard>
         <h3>{title}</h3>
