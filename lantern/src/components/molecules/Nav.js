@@ -8,17 +8,21 @@ const StyledNav = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  /* @media screen {} */
 `;
 
 export default class Nav extends PureComponent {
   render() {
+    const { logoName, navLinks } = this.props;
+    const navButtons = navLinks.map((link, i) => (
+      <NavButton key={i} url={link.url}>
+        {link.text}
+      </NavButton>
+    ));
     return (
       <StyledNav>
-        <Logo name="Lantern" />
-        <NavButton link="#">Why We Exist</NavButton>
-        <NavButton link="#">What We Do</NavButton>
-        <NavButton link="#">Candidate Development</NavButton>
-        <NavButton link="#">Consultative Recruiting</NavButton>
+        <Logo name={logoName} />
+        {navButtons}
       </StyledNav>
     );
   }

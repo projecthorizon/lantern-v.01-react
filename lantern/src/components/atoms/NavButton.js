@@ -12,6 +12,10 @@ const StyledButton = styled.div`
   height: 2em;
   border: 1px solid red;
   font-size: 1.5em;
+
+  :hover {
+    background-color: blue;
+  }
 `;
 
 export default class NavButton extends PureComponent {
