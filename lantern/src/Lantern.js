@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Nav, SubNav, Card } from './components/molecules';
-import { TestPage } from './components/pages';
+import { Home } from './components/pages';
 
 export default class Lantern extends Component {
   state = {
     nav: {
       logoName: 'Lantern',
       routes: [
-        { path: '/test_page', component: TestPage, text: 'Why We Exist' },
+        { path: '#', component: null, text: 'Why We Exist' },
         { path: '#', component: null, text: 'What We Do' },
         { path: '#', component: null, text: 'Candidate Development' },
         { path: '#', component: null, text: 'Consultative Recruiting' }
@@ -38,8 +38,7 @@ export default class Lantern extends Component {
     return (
       <div className="App">
         <Nav logoName={logoName} routes={routes} />
-        <SubNav subNavLinks={subNavLinks} />
-        <Card title={title} body={body} price={price} footer={footer} />
+        <Home />
       </div>
     );
   }
