@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const StyledButton = styled.div`
@@ -20,10 +21,10 @@ const StyledButton = styled.div`
 
 export default class NavButton extends PureComponent {
   render() {
-    const { link, children } = this.props;
+    const { path, children } = this.props;
     return (
       <StyledButton>
-        <a href={link}>{children}</a>
+        <Link to={path}>{children}</Link>
       </StyledButton>
     );
   }

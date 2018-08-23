@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import NavButton from './components/atoms';
 import { Nav, SubNav, Card } from './components/molecules';
+import { TestPage } from './components/pages';
 
 export default class Lantern extends Component {
   state = {
     nav: {
       logoName: 'Lantern',
-      navLinks: [
-        { url: '#', text: 'Why We Exist' },
-        { url: '#', text: 'What We Do' },
-        { url: '#', text: 'Candidate Development' },
-        { url: '#', text: 'Consultative Recruiting' }
+      routes: [
+        { path: '/test_page', component: TestPage, text: 'Why We Exist' },
+        { path: '#', component: null, text: 'What We Do' },
+        { path: '#', component: null, text: 'Candidate Development' },
+        { path: '#', component: null, text: 'Consultative Recruiting' }
       ]
     },
     subNav: {
@@ -20,7 +20,6 @@ export default class Lantern extends Component {
         { url: '#', text: 'Full Service Package' }
       ]
     },
-
     card: {
       title: 'Career Discovery Package',
       body:
@@ -33,12 +32,12 @@ export default class Lantern extends Component {
 
   render() {
     const { nav, subNav, card } = this.state;
-    const { logoName, navLinks } = nav;
+    const { logoName, routes } = nav;
     const { subNavLinks } = subNav;
     const { title, body, price, footer } = card;
     return (
       <div className="App">
-        <Nav logoName={logoName} navLinks={navLinks} />
+        <Nav logoName={logoName} routes={routes} />
         <SubNav subNavLinks={subNavLinks} />
         <Card title={title} body={body} price={price} footer={footer} />
       </div>
