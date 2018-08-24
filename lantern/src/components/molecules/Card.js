@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { TextBody } from '../atoms';
 
 const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   width: 50%;
   background: lightgoldenrodyellow;

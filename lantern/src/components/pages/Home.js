@@ -6,7 +6,7 @@ export default class Home extends Component {
   state = {
     cards: [
       {
-        title: 'Career Discovery Package',
+        title: 'Who We Are',
         body: [
           'We are you.',
           'We are job seekers, we are employees, we are employers. We have been stuck, we have wanted more.',

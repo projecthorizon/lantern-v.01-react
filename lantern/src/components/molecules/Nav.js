@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Logo } from '../atoms';
@@ -12,25 +11,28 @@ const StyledNav = styled.div`
   /* @media screen {} */
 `;
 
+const StyledBreak = styled.div`
+  flex-basis: 100%;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+`;
+
 export default class Nav extends PureComponent {
   render() {
-    const { logoName, routes } = this.props;
-    const navButtons = routes.map((route, i) => (
+    const { logo, routes } = this.props;
+    const navRoutes = routes.filter(route => route.navButton);
+    const navButtons = navRoutes.map((route, i) => (
       <NavButton key={i} path={route.path}>
         {route.text}
       </NavButton>
     ));
-    const navRoutes = routes.map((route, i) => (
-      <Route key={i} path={route.path} component={route.component} />
-    ));
+
     return (
-      <Router>
-        <StyledNav>
-          <Logo name={logoName} />
-          {navButtons}
-          {navRoutes}
-        </StyledNav>
-      </Router>
+      <StyledNav>
+        <Logo name={logo} />
+        {navButtons}
+      </StyledNav>
     );
   }
 }
