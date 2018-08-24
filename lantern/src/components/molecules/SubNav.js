@@ -11,8 +11,8 @@ const StyledSubNav = styled.div`
 
 export default class SubNav extends PureComponent {
   render() {
-    const { subNavLinks } = this.props;
-    const navButtons = subNavLinks.map((link, i) => (
+    const { routes } = this.props;
+    const navButtons = routes.map((link, i) => (
       <SubNavButton key={i} url={link.url}>
         {link.text}
       </SubNavButton>

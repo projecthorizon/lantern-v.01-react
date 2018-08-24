@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Nav } from './components/molecules';
-import { Home, WhyWeExist, WhatWeDo } from './components/pages';
+import { Home, WhyWeExist, WhatWeDo, Candidate } from './components/pages';
 
 export default class Lantern extends Component {
   state = {
@@ -11,7 +11,12 @@ export default class Lantern extends Component {
         { path: '/', component: Home, text: 'Lantern', navButton: false },
         { path: '/why_we_exist', component: WhyWeExist, text: 'Why We Exist', navButton: true },
         { path: '/what_we_do', component: WhatWeDo, text: 'What We Do', navButton: true },
-        { path: '#', component: null, text: 'Candidate Development', navButton: true },
+        {
+          path: '/cadidate_development',
+          component: Candidate,
+          text: 'Candidate Development',
+          navButton: true
+        },
         { path: '#', component: null, text: 'Consultative Recruiting', navButton: true }
       ]
     }
