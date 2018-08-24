@@ -8,8 +8,13 @@ export default class Discovery extends Component {
       {
         title: 'Career Discovery Package',
         body: [
-          ['Initial Interview + Goal Capture', 'Work Deep Dive', 'Psycho-Ed', 'Action Planning'],
-          'Includes 4 hours of 1-on-1 coaching sessions, unlimited text & email support, recorded & transcribed session notes, evidence based Values/Skills/Strengths/Interests inventories by certified practitioners, career discovery & clarification, detailed personal assessment package, resume/cover letter/LinkedIn review & strategy, social media audit, personal narrative development, career path planning & strategy.'
+          [
+            'Initial Interview + Goal Capture',
+            'Work Deep Dive',
+            'Psycho-Ed',
+            'Action Planning',
+            'Includes 4 hours of 1-on-1 coaching sessions, unlimited text & email support, recorded & transcribed session notes, evidence based Values/Skills/Strengths/Interests inventories by certified practitioners, career discovery & clarification, detailed personal assessment package, resume/cover letter/LinkedIn review & strategy, social media audit, personal narrative development, career path planning & strategy.'
+          ]
         ],
         price: 950,
         footer:

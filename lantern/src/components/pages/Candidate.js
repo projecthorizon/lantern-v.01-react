@@ -2,26 +2,29 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { Discovery, FullService, Immediate } from '../organisms';
-import { SubNav } from '../molecules';
+import { Nav, Card } from '../molecules';
 
 export default class Candidate extends Component {
   state = {
     subNav: {
       routes: [
         {
-          path: '/candidate_development/career_discovery',
-          component: Discovery,
-          text: 'Career Discovery'
+          path: '#',
+          component: null,
+          text: 'Career Discovery',
+          navButton: true
         },
         {
-          path: '/candidate_development/immediate_employment',
-          component: Immediate,
-          text: 'Immediate Employment'
+          path: '#',
+          component: null,
+          text: 'Immediate Employment',
+          navButton: true
         },
         {
-          path: '/candidate_development/full_service',
-          component: FullService,
-          text: 'Full Service Package'
+          path: '#',
+          component: null,
+          text: 'Full Service Package',
+          navButton: true
         }
       ]
     },
@@ -71,15 +74,19 @@ export default class Candidate extends Component {
     ]
   };
   render() {
-    const { subNav } = this.state;
+    const { subNav, cards } = this.state;
     const { routes } = subNav;
     const subNavRoutes = routes.map((route, i) => (
       <Route key={i} exact path={route.path} component={route.component} />
     ));
+    const allCards = cards.map((card, i) => (
+      <Card title={card.title} body={card.body} price={card.price} footer={card.footer} />
+    ));
     return (
       <div>
-        <SubNav routes={routes} />
+        <Nav routes={routes} />
         {subNavRoutes}
+        {allCards}
       </div>
     );
   }

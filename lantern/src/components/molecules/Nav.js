@@ -11,13 +11,6 @@ const StyledNav = styled.div`
   /* @media screen {} */
 `;
 
-const StyledBreak = styled.div`
-  flex-basis: 100%;
-  width: 0px;
-  height: 0px;
-  overflow: hidden;
-`;
-
 export default class Nav extends PureComponent {
   render() {
     const { logo, routes } = this.props;
@@ -28,11 +21,13 @@ export default class Nav extends PureComponent {
       </NavButton>
     ));
 
-    return (
+    return logo ? (
       <StyledNav>
         <Logo name={logo} />
         {navButtons}
       </StyledNav>
+    ) : (
+      <StyledNav>{navButtons}</StyledNav>
     );
   }
 }
