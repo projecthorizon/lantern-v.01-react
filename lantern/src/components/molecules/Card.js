@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { TextBody } from '../atoms';
 
 const StyledCard = styled.div`
-  display: flex;
+  display: ${({ isHidden }) => 'none' || 'flex'};
   flex-direction: column;
   padding: 10px;
   width: 50%;
@@ -14,7 +14,7 @@ const StyledCard = styled.div`
 export default class Card extends PureComponent {
   createUl(arr) {
     const lis = arr.map((li, i) => <li key={i}>{li}</li>);
-    return <ul>{lis}</ul>;
+    return <ul key="cardUl">{lis}</ul>;
   }
 
   render() {

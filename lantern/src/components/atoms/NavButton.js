@@ -21,10 +21,12 @@ const StyledButton = styled.div`
 
 export default class NavButton extends PureComponent {
   render() {
-    const { path, children } = this.props;
+    const { path, children, cardNums, handleClick } = this.props;
     return (
       <StyledButton>
-        <Link to={path}>{children}</Link>
+        <Link to={path} onClick={handleClick}>
+          {children}
+        </Link>
       </StyledButton>
     );
   }

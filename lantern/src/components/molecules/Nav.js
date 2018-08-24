@@ -13,10 +13,10 @@ const StyledNav = styled.div`
 
 export default class Nav extends PureComponent {
   render() {
-    const { logo, routes } = this.props;
+    const { logo, routes, handleClick } = this.props;
     const navRoutes = routes.filter(route => route.navButton);
     const navButtons = navRoutes.map((route, i) => (
-      <NavButton key={i} path={route.path}>
+      <NavButton key={i} path={route.path} cardNums={route.cardNums} handleClick={handleClick}>
         {route.text}
       </NavButton>
     ));

@@ -12,19 +12,22 @@ export default class Candidate extends Component {
           path: '#',
           component: null,
           text: 'Career Discovery',
-          navButton: true
+          navButton: true,
+          cardNums: [1]
         },
         {
           path: '#',
           component: null,
           text: 'Immediate Employment',
-          navButton: true
+          navButton: true,
+          cardNums: [2]
         },
         {
           path: '#',
           component: null,
           text: 'Full Service Package',
-          navButton: true
+          navButton: true,
+          cardNums: [3]
         }
       ]
     },
@@ -37,7 +40,9 @@ export default class Candidate extends Component {
         ],
         price: 950,
         footer:
-          'All of our candidate services include lifetime support & check-ins. We invest in you for the long term.'
+          'All of our candidate services include lifetime support & check-ins. We invest in you for the long term.',
+        isHidden: true,
+        cardNum: 1
       },
       {
         title: 'Immediate Employment',
@@ -47,7 +52,9 @@ export default class Candidate extends Component {
         ],
         price: 1185,
         footer:
-          'All of our candidate services include lifetime support & check-ins. We invest in you for the long term.'
+          'All of our candidate services include lifetime support & check-ins. We invest in you for the long term.',
+        isHidden: true,
+        cardNum: 2
       },
       {
         title: 'Full Service Package',
@@ -69,10 +76,24 @@ export default class Candidate extends Component {
         ],
         price: 3500,
         footer:
-          'Additional hours available a la carte. Choose any above service and inquire for pricing. All of our candidate services include lifetime support & check-ins. We invest in you for the long term.'
+          'Additional hours available a la carte. Choose any above service and inquire for pricing. All of our candidate services include lifetime support & check-ins. We invest in you for the long term.',
+        isHidden: true,
+        cardNum: 3
       }
     ]
   };
+
+  toggleCards(e, cardNumArr) {
+    e.preventDefault();
+    const updatedCards = this.state.cards.forEach(
+      card => (cardNumArr.includes(card.cardNum) ? (card.isHidden = false) : (card.isHidden = true))
+    );
+    this.setState({
+      updatedCards
+    });
+    console.log(this.state, 'clicked!');
+  }
+
   render() {
     const { subNav, cards } = this.state;
     const { routes } = subNav;
@@ -80,11 +101,11 @@ export default class Candidate extends Component {
       <Route key={i} exact path={route.path} component={route.component} />
     ));
     const allCards = cards.map((card, i) => (
-      <Card title={card.title} body={card.body} price={card.price} footer={card.footer} />
+      <Card key={i} title={card.title} body={card.body} price={card.price} footer={card.footer} />
     ));
     return (
       <div>
-        <Nav routes={routes} />
+        <Nav routes={routes} handleClick={this.toggleCards.bind(this)} />
         {subNavRoutes}
         {allCards}
       </div>
